@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>เชื่อมต่อ TikTok | Queen Brows AI Hub</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><p class="brand">QUEEN BROWS</p><p class="sub">Queen Brows AI Hub · เชื่อมต่อบัญชี TikTok</p></header>
+<main>
+<div class="card" id="box"><p>กำลังตรวจสอบ…</p></div>
+<p class="muted">หน้านี้ใช้เฉพาะตอนเจ้าของร้านเชื่อมต่อบัญชี TikTok ของร้านกับ Queen Brows AI Hub · <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms of Service</a></p>
+</main>
+<script>
+const q=new URLSearchParams(location.search),box=document.getElementById('box');
+const code=q.get('code'),err=q.get('error');
+if(code){
+  box.innerHTML='<h1>เชื่อมต่อแล้ว ✓</h1><p>กดปุ่มด้านล่างเพื่อคัดลอกรหัส แล้วกลับไปวางในแอป Queen Brows AI Hub (รหัสใช้ได้ไม่กี่นาที)</p><p><button class="btn" id="cp">คัดลอกรหัสเชื่อมต่อ</button></p><p class="en">Connected. Copy the code and paste it into Queen Brows AI Hub within a few minutes.</p>';
+  document.getElementById('cp').onclick=()=>navigator.clipboard.writeText(code).then(()=>{document.getElementById('cp').textContent='คัดลอกแล้ว ✓';});
+  history.replaceState(null,'',location.pathname);
+}else{
+  box.innerHTML='<h1>ยังไม่ได้เชื่อมต่อ</h1><p>'+(err?'TikTok แจ้งว่า: '+String(err).replace(/[<>&]/g,''):'ไม่พบรหัสเชื่อมต่อ')+' — กลับไปที่แอปแล้วลองกดเชื่อมต่อใหม่อีกครั้ง</p>';
+}
+</script>
+</body>
+</html>
